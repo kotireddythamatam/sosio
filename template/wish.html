@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Wish list</title>
+    <style media="screen">
+      .body{
+        margin: 1% 30%;
+        background: #8f8059;
+      }
+      .form{
+        background: #abb4c2;
+
+      }
+      .display{
+        background: #c3b0d1;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="body">
+      <div class="form">
+    <form action="./wish" method="post">
+      {% csrf_token %}
+      <label for="wish"ds>Wish</label>
+      <input type="text" name="t1" placeholder="Wish here">
+      <label for="date">Date</label>
+      <input type="date" name="t2" placeholder="date her">
+      <input type="submit" value="save">
+    </form>
+    </div>
+    <div class="display">
+      {% for data in obj %}
+      <p>Buy a {{ data.wish }},date : {{ data.date }}</p>
+      {% endfor %}
+    </div>
+    </div>
+    </body>
+</html>
